@@ -1,0 +1,16 @@
+{
+    "Dormer": [
+      {
+        "Name": "On",
+        "Hex": "0xFF02FD"
+      },
+      {
+        "Name": "Off",
+        "Hex": "0xFF02FD"
+      },
+      {
+        "Name": "White",
+        "Hex": "0xFF22DD"
+      }
+    ]
+}
