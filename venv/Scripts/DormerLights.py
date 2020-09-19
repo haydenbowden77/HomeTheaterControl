@@ -1,17 +1,23 @@
 import requests
+import PublicIP
 
+ip = PublicIP.ip
+port = 4900
 
 def On():
     # print(bytes)
-    post = requests.post('http://173.202.23.174:4900/0xFF02FD/')
+    url = 'http://'+ip+':'+port+'/0xFF02FD/'
+    post = requests.post(url)
     #print(post.response)
 
 
 def Off():
-    post = requests.post('http://173.202.23.174:4900/0xFF02FD/')
+    url = 'http://'+ip+':'+port+'/0xFF02FD/'
+    post = requests.post(url)
     #print(post.response)
 
 
 def White():
-    post = requests.post('http://173.202.23.174:4900/0xFF22DD/')
+    url = 'http://'+ip+':'+port+'/0xFF22DD/'
+    post = requests.post(url)
     #print(post.response)
