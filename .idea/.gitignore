@@ -7,5 +7,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 #Hide Public IP
-/venv/Scripts/PublicIP.py
+/venv/
+/Scripts/
+/PublicIP.py
 
