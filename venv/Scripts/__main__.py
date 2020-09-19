@@ -7,4 +7,4 @@ import DormerLights
 #DenonAVR.powerOn()
 #DenonAVR.dualOutput()
 #Playstation.powerOn()
-DormerLights.White()
+DormerLights.Off()
