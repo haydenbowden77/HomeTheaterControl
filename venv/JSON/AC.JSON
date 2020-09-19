@@ -1,0 +1,24 @@
+{
+    "AC": [
+      {
+        "Name": "On",
+        "Hex": "0x8166817E"
+      },
+      {
+        "Name": "Off",
+        "Hex": "0x8166817E"
+      },
+      {
+        "Name": "ChangeMode",
+        "Hex": "0x8166D926"
+      },
+      {
+        "Name": "TempUp",
+        "Hex": "0x8166A15E"
+      },
+      {
+        "Name": "TempDown",
+        "Hex": "0x816651AE"
+      }
+    ]
+}
