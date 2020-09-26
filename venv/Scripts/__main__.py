@@ -1,10 +1,11 @@
-#import Projector
-#import Playstation
-#import DenonAVR
+import Projector
+import Playstation
+import DenonAVR
 import DormerLights
 
 #Projector.powerOn()
 #DenonAVR.powerOn()
-#DenonAVR.dualOutput()
+#DenonAVR.displayProjector()
+#DenonAVR.computer()
 #Playstation.powerOn()
-DormerLights.White()
+DormerLights.On()

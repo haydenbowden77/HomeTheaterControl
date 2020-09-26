@@ -2,22 +2,19 @@ import requests
 import PublicIP
 
 ip = PublicIP.ip
-port = 4900
+port = '4900'
+
+def run(command):
+    url = 'http://'+ip+':'+port+'/' + command + '/'
+    post = requests.post(url)
 
 def On():
-    # print(bytes)
-    url = 'http://'+ip+':'+port+'/0xFF02FD/'
-    post = requests.post(url)
-    #print(post.response)
+    run('0xFF02FD')
 
 
 def Off():
-    url = 'http://'+ip+':'+port+'/0xFF02FD/'
-    post = requests.post(url)
-    #print(post.response)
+    run('0xFF02FD')
 
 
 def White():
-    url = 'http://'+ip+':'+port+'/0xFF22DD/'
-    post = requests.post(url)
-    #print(post.response)
+    run('0xFF22DD')
