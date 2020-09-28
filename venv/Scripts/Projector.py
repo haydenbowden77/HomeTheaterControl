@@ -1,45 +1,47 @@
 from pypjlink import Projector
 import requests
 import socket
+import urllib.request
 
+def getChallenge(html):
+    html = str(html)
+    index = html.find('Challenge')
+    html = html[index:len(html):]
+    index = html.find('VALUE')
+    html = html[index:len(html):]
+    index = html.find('"')
+    html = html[index+1:len(html):]
+    index = html.find('"')
+    html = html[0:index:]
+    return html
 
 def powerOn():
-    '''message = 'POST /tgi/control.tgi HTTP/1.1\r\n'  \
-            'Host: 192.168.1.146\r\n'   \
-            'Connection: keep-alive\r\n'    \
-            'Content-Length: 18\r\n'    \
-            'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36\r\n'   \
-            'Content-type: application/x-www-form-urlencoded\r\n'   \
-            'Accept: */*\r\n'   \
-            'Origin: http://192.168.1.146\r\n'  \
-            'Referer: http://192.168.1.146/control.htm\r\n' \
-            'Accept-Encoding: gzip, deflate\r\n'    \
-            'Accept-Language: en-US,en;q=0.9\r\n'   \
-            'Cookie: ATOP=NmDId\r\n'
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect(('192.168.1.146',80))
-    sock.send(message.encode())'''
+    session = requests.Session()
+    headers = {'Content-type': 'application/x-www-form-urlencoded'}
+    data = {'user':'0',
+            'Username':'1',
+            'Password':'',
+            'Challenge':'',
+            'Response':'2c3b09ef8ad3e94bd60ab8c6ea2e07d5'}
+    cookies = {'ATOP': 'PSa.d'}
+    s = requests.get('http://192.168.1.146:80/login.htm')
+    challenge = getChallenge(s.content)
+    str = 'adminadmin' + challenge
+    print(challenge)
+    #session.post('http://192.168.1.146:80/tgi/login.tgi',headers=headers,data = data,cookies=cookies)
+    #,cookies=cookies)
+    print(session.cookies.get_dict())
+    '''url = 'http://192.168.1.146:80/tgi/control.tgi'
+    data = {'btn_powon':'Power On'}
+    #data = 'btn_powoff=Power Off'
+    cookies = {'ATOP':'PSa.d'}
+    session.post(url, headers=headers, data=data,cookies=cookies)'''
 
 
-
-
-               # 'POST /tgi/control.tgi HTTP/1.1\r\n' \
-              #'Content-Type: application/x-www-form-urlencoded\r\n' \
-              #'Content-Length: 18\r\n' \
-              #'Host: http://192.168.1.146\r\n'
-
-    cookies = dict(ATOP='NmDId')
-    headers = {
-        'Referer': 'http://192.168.1.146/control.htm',
-        'Origin': 'http://192.168.1.146',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
-        'Accept-Language': 'en-US,en;q=0.9'
-    }
-    data = {'btn_powon':'Power On','pw': "0"}
-    r = requests.post('http://192.168.1.146:80/tgi.control.tgi', data=data, headers=headers)
-    #with Projector.from_address('192.168.1.146') as optoma:
-     #   optoma.authenticate('admin')
-      #  optoma.set_power('on')
+    '''
+    with Projector.from_address('192.168.1.146') as optoma:
+        optoma.authenticate('admin')
+        optoma.set_power('on')'''
 
 def powerOff():
 

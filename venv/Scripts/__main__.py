@@ -3,9 +3,6 @@ import Playstation
 import DenonAVR
 import DormerLights
 
-#Projector.powerOn()
-#DenonAVR.powerOn()
-#DenonAVR.displayProjector()
-#DenonAVR.computer()
-#Playstation.powerOn()
-DormerLights.On()
+Projector.powerOn()
+#DenonAVR.setVolume('55')
+#DormerLights.Off()
