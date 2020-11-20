@@ -1,16 +1,20 @@
 import requests
+import PublicIP
 
+ip = PublicIP.ip
+port = '4900'
+
+def run(command):
+    url = 'http://'+ip+':'+port+'/' + command + '/'
+    post = requests.post(url)
 
 def On():
-    post = requests.post('http://173.202.16.32:4900/0xFF02FD/')
-    #print(post.status_code)
+    run('0xFF02FD')
 
 
 def Off():
-    post = requests.post('http://173.202.16.32:4900/0xFF02FD/')
-    #print(post.status_code)
+    run('0xFF02FD')
 
 
 def White():
-    post = requests.post('http://173.202.16.32:4900/0xFF22DD/')
-    #print(post.status_code)
+    run('0xFF22DD')

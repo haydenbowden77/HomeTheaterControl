@@ -1,27 +1,69 @@
 import requests
+import PublicIP
+ip =  PublicIP.ip
+port = '4902'
+urlPrefix = 'http://' + ip + ':' + port + '/goform/formiPhoneAppDirect.xml?'
 
+def run(command):
+    postURL = 'http://' + ip + ':' + port + '/goform/AppCommand.xml'
+    post = requests.post(postURL)
+    url = urlPrefix + command
+    r = requests.get(url)
+
+#Power
 def powerOn():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?PWON')
+    run('PWON')
 
 def powerOff():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?PWSTANDBY')
+    run('PWSTANDBY')
 
+#Inputs
 def playstation():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?SIGAME')
+    run('SIGAME')
 
-def projector():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?VSMONI1')
+def computer():
+    run('SIDVD')
 
-def computerScreen():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?VSMONI2')
+def directv():
+    run('SISAT/CBL')
 
-def dualOutput():
-    post = requests.post('http://192.168.1.104:8080/goform/AppCommand.xml')
-    r = requests.get('http://192.168.1.104:8080/goform/formiPhoneAppDirect.xml?VSMONIAUTO')
+def xbox():
+    run('SIBD')
 
+def bluetooth():
+    run('SIBT')
 
+#Outputs
+def displayProjector():
+    run('VSMONI1')
+
+def displayComputer():
+    run('VSMONI2')
+
+def dualDisplay():
+    run('VSMONIAUTO')
+
+#Volume
+def volumeUp():
+    run('MVUP')
+
+def volumeUp(amt):
+    for i in range(amt):
+        run('MVUP')
+
+def volumeDown():
+    run('MVDOWN')
+
+def volumeDown(amt):
+    for i in range(amt):
+        run('MVDOWN')
+
+def setVolume(vol):
+    level = 'MV' + str(vol)
+    run(level)
+
+def mute():
+    run('MUON')
+
+def unmute():
+    run('MUOFF')
