@@ -2,9 +2,11 @@
 #import Playstation
 #import DenonAVR
 import DormerLights
+#import DTV
 
 #Projector.powerOn()
 #DenonAVR.powerOn()
 #DenonAVR.dualOutput()
 #Playstation.powerOn()
-DormerLights.Off()
+DormerLights.On()
+#DormerLights.White()
