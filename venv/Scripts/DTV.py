@@ -1,11 +1,11 @@
-import DirectPy
+#import DirectPy
 
-dtv = DirectPy.DIRECTV(ip='192.168.1.143',clientAddr='C42795D03F08')
+#dtv = DirectPy.DIRECTV(ip='192.168.1.143',clientAddr='C42795D03F08')
 #dtv = DirectPy.DIRECTV(ip='192.168.1.143',clientAddr='88F7C7A82F8B')
 
-box.port = 4905
-box.channel = '0'
-box.valid_keys = ['power', 'poweron', 'poweroff', 'format', 'pause', 'rew', 'replay', 'stop', 'advance', 'ffwd', 'record',
+#box.port = 4905
+#box.channel = '0'
+#box.valid_keys = ['power', 'poweron', 'poweroff', 'format', 'pause', 'rew', 'replay', 'stop', 'advance', 'ffwd', 'record',
                   'play', 'guide', 'active', 'list', 'exit', 'back', 'menu', 'info', 'up', 'down', 'left', 'right',
                   'select', 'red', 'green', 'yellow', 'blue', 'chanup', 'chandown', 'prev', '0', '1', '2', '3', '4', '5',
                   '6', '7', '8', '9', 'dash', 'enter']
